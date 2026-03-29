@@ -1,8 +1,9 @@
 import 'dotenv/config';
+import { trimEnvValue } from '../lib/envTrim.js';
 
-const token = process.env.BOT_TOKEN;
-const baseUrl = process.env.WEBHOOK_URL?.replace(/\/$/, '');
-const secret = process.env.WEBHOOK_SECRET;
+const token = trimEnvValue(process.env.BOT_TOKEN);
+const baseUrl = trimEnvValue(process.env.WEBHOOK_URL)?.replace(/\/$/, '');
+const secret = trimEnvValue(process.env.WEBHOOK_SECRET);
 
 if (!token) {
   console.error('Set BOT_TOKEN in .env');
